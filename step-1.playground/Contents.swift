@@ -1,6 +1,6 @@
 func wordPush( word:String, number:Int, direction: String) -> String {
     var wordDict = [Int:String]()
-    var wordArray = word.map{String($0)}
+    let wordArray = word.map{String($0)}
     var answer = [String]()
     
     if number%wordArray.count == 0 {
@@ -31,4 +31,4 @@ func wordPush( word:String, number:Int, direction: String) -> String {
     return answer.joined()
 }
 
-
+func
