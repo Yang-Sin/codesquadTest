@@ -15,8 +15,8 @@ if let input = readLine() {
     
     print("CUBE> \(input)")
     
-    var a = input.map{String($0)}
-    var inputArray = a.map{ $0 == "\'" ? $0+" " : $0}.map{ $0 == "U" || $0 == "L" || $0 == "F" || $0 == "R" || $0 == "B" || $0 == "D" ? " "+$0 : $0}.joined().split(separator: " ")
+    let a = input.map{String($0)}
+    let inputArray = a.map{ $0 == "\'" ? $0+" " : $0}.map{ $0 == "U" || $0 == "L" || $0 == "F" || $0 == "R" || $0 == "B" || $0 == "D" ? " "+$0 : $0}.joined().split(separator: " ")
     var movingCube = MovingCube()
 
     func rotateCube() {
