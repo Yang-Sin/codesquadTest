@@ -4,14 +4,15 @@ if let input = readLine() {
     print("G B B")
     print("CUBE> \(input)")
 
-    let inputArray = input.map{String($0)}
+    let a = input.map{String($0)}
+    let inputArray = a.map{ $0 == "\'" ? $0+" " : $0}.map{ $0 == "U" || $0 == "L" || $0 == "B" || $0 == "R" ? " "+$0 : $0}.joined().split(separator: " ")
     var movingCube = MovingCube()
     
     struct MovingCube {
 
         var cube = [["R", "R", "W"], ["G", "C", "W"], ["G", "B", "B"]]
 
-        mutating func upSide(direction: String) -> [[String]] {
+        mutating func upSide(direction: String) {
             var group = [cube[0][0], cube[0][1], cube[0][2]]
             let group2 = group
 
@@ -31,7 +32,7 @@ if let input = readLine() {
             cube[0][0] = group[0]
             cube[0][1] = group[1]
             cube[0][2] = group[2]
-            return cube
+
         }
 
         mutating func bottomSide(direction: String) {
@@ -105,40 +106,34 @@ if let input = readLine() {
         case "L":
             print("L")
             movingCube.leftSide(direction: "L")
-            movingCube.cube.map{ print($0) }
         case "L\'":
             print("L\'")
             movingCube.leftSide(direction: "L\'")
-            movingCube.cube.map{ print($0) }
         case "R":
             print("R")
             movingCube.rightSide(direction: "R")
-            movingCube.cube.map{ print($0) }
         case "R\'":
             print("R\'")
             movingCube.rightSide(direction: "R\'")
-            movingCube.cube.map{ print($0) }
         case "U":
             print("U")
             movingCube.upSide(direction: "U")
-            movingCube.cube.map{ print($0) }
         case "U\'":
             print("U\'")
             movingCube.upSide(direction: "U\'")
-            print(movingCube.cube)
-            movingCube.cube.map{ print($0) }
         case "B":
             print("B")
             movingCube.bottomSide(direction: "B")
-            movingCube.cube.map{ print($0) }
         case "B\'":
             print("B\'")
             movingCube.bottomSide(direction: "B\'")
-            movingCube.cube.map{ print($0) }
         case "Q":
             print("Bye~")
         default:
             break
         }
+        print("\(movingCube.cube[0][0]) \(movingCube.cube[0][1]) \(movingCube.cube[0][2])")
+        print("\(movingCube.cube[1][0]) \(movingCube.cube[1][1]) \(movingCube.cube[1][2])")
+        print("\(movingCube.cube[2][0]) \(movingCube.cube[2][1]) \(movingCube.cube[2][2])")
     }
 }
