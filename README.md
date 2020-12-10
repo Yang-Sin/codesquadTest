@@ -1,7 +1,7 @@
 # codesquadTest
 
 <blockQuote>###깃사용이 서툴고 브랜치를 여럿 옮기며 작성하다보니 실수로 discard all changes 누르다 약간 꼬여버린 파일들이 있는것 같습니다...  각 단계별로 브랜치의 main.swift파일을 보시면 아무 이상 없습니다. *_*.
-
+<blockQuote>
 메서드 이름은 wordPush, 전달인자로는 단어(word), 움직이는 칸 수 (Int), 방향(direction) 입니다.
 
 [Int:String]의 dict타입으로 변수를 하나 만들어 key는 각 단어의 알파벳의 index 그리고 value는 각 단어의 알파벳을 넣어주었습니다.
