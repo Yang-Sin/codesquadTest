@@ -1,3 +1,5 @@
+import Foundation
+
 if let input = readLine() {
     print("               B B B")
     print("               B B B")
@@ -12,6 +14,68 @@ if let input = readLine() {
     print("               R R R")
     
     print("CUBE> \(input)")
+    
+    var a = input.map{String($0)}
+    var inputArray = a.map{ $0 == "\'" ? $0+" " : $0}.map{ $0 == "U" || $0 == "L" || $0 == "F" || $0 == "R" || $0 == "B" || $0 == "D" ? " "+$0 : $0}.joined().split(separator: " ")
+    var movingCube = MovingCube()
+
+    func rotateCube() {
+        for i in inputArray {
+            switch i {
+            case "U":
+                movingCube.rotateUCube()
+                print("\(i)")
+            case "U\'":
+                movingCube.rotateU_Cube()
+                print("\(i)")
+            case "L":
+                movingCube.rotateLCube()
+                print("\(i)")
+            case "L\'":
+                movingCube.rotateL_Cube()
+                print("\(i)")
+            case "F":
+                movingCube.rotateFCube()
+                print("\(i)")
+            case "F\'":
+                movingCube.rotateF_Cube()
+                print("\(i)")
+            case "R":
+                movingCube.rotateRCube()
+                print("\(i)")
+            case "R\'":
+                movingCube.rotateR_Cube()
+                print("\(i)")
+            case "B":
+                movingCube.rotateBCube()
+                print("\(i)")
+            case "B\'":
+                movingCube.rotateB_Cube()
+                print("\(i)")
+            case "D":
+                movingCube.rotateDCube()
+                print("\(i)")
+            case "D\'":
+                movingCube.rotateD_Cube()
+                print("\(i)")
+            default:
+                break
+            }
+            let cube = movingCube.cube
+            print("               \(cube[0][0][0]) \(cube[0][0][1]) \(cube[0][0][2])")
+            print("               \(cube[0][1][0]) \(cube[0][1][1]) \(cube[0][1][2])")
+            print("               \(cube[0][2][0]) \(cube[0][2][1]) \(cube[0][2][2])")
+            
+            print("\(cube[4][0][0]) \(cube[4][0][1]) \(cube[4][0][2])     \(cube[1][0][0]) \(cube[1][0][1]) \(cube[1][0][2])     \(cube[2][0][0]) \(cube[2][0][1]) \(cube[2][0][2])     \(cube[3][0][0]) \(cube[3][0][1]) \(cube[3][0][2])")
+            print("\(cube[4][1][0]) \(cube[4][1][1]) \(cube[4][1][2])     \(cube[1][1][0]) \(cube[1][1][1]) \(cube[1][1][2])     \(cube[2][1][0]) \(cube[2][1][1]) \(cube[2][1][2])     \(cube[3][1][0]) \(cube[3][1][1]) \(cube[3][1][2])")
+            print("\(cube[4][2][0]) \(cube[4][2][1]) \(cube[4][2][2])     \(cube[1][2][0]) \(cube[1][2][1]) \(cube[1][2][2])     \(cube[2][2][0]) \(cube[2][2][1]) \(cube[2][2][2])     \(cube[3][2][0]) \(cube[3][2][1]) \(cube[3][2][2])")
+            
+            print("               \(cube[5][0][0]) \(cube[5][0][1]) \(cube[5][0][2])")
+            print("               \(cube[5][1][0]) \(cube[5][1][1]) \(cube[5][1][2])")
+            print("               \(cube[5][2][0]) \(cube[5][2][1]) \(cube[5][2][2])")
+        }
+    }
+    
     
     struct MovingCube {
         var cube = [[["B", "B", "B"], ["B", "B", "B"], ["B", "B", "B"]], [["W", "W", "W"], ["W", "W", "W"], ["W", "W", "W"]], [["O", "O", "O"], ["O", "O", "O"], ["O", "O", "O"]], [["G", "G", "G"], ["G", "G", "G"], ["G", "G", "G"]], [["Y", "Y", "Y"], ["Y", "Y", "Y"], ["Y", "Y", "Y"]], [["R", "R", "R"], ["R", "R", "R"], ["R", "R", "R"]]]
@@ -162,5 +226,6 @@ if let input = readLine() {
             }
         }
     }
+    rotateCube()
 }
 
